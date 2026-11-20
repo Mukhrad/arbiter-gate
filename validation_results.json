@@ -1,0 +1,192 @@
+{
+  "10": {
+    "always_cheap": {
+      "policy": "always_cheap",
+      "mean_quality": 0.5011524965661638,
+      "mean_cost": 1.0,
+      "expensive_fraction": 0.0
+    },
+    "always_expensive": {
+      "policy": "always_expensive",
+      "mean_quality": 0.7641980124138771,
+      "mean_cost": 5.0,
+      "expensive_fraction": 1.0
+    },
+    "fixed_threshold": {
+      "policy": "fixed_threshold",
+      "mean_quality": 0.5813093370042398,
+      "mean_cost": 2.3493333333333335,
+      "expensive_fraction": 0.3373333333333333
+    },
+    "oracle": {
+      "policy": "oracle",
+      "mean_quality": 0.7654725968850773,
+      "mean_cost": 3.6533333333333333,
+      "expensive_fraction": 0.6633333333333333
+    },
+    "gate_myopic": {
+      "policy": "gate_myopic",
+      "mean_quality": 0.6004351645576834,
+      "mean_cost": 2.5893333333333333,
+      "expensive_fraction": 0.3973333333333333
+    },
+    "gate_delayed": {
+      "policy": "gate_delayed",
+      "mean_quality": 0.7643182549375797,
+      "mean_cost": 3.776,
+      "expensive_fraction": 0.694
+    }
+  },
+  "11": {
+    "always_cheap": {
+      "policy": "always_cheap",
+      "mean_quality": 0.49956202136691763,
+      "mean_cost": 1.0,
+      "expensive_fraction": 0.0
+    },
+    "always_expensive": {
+      "policy": "always_expensive",
+      "mean_quality": 0.7747922866036532,
+      "mean_cost": 5.0,
+      "expensive_fraction": 1.0
+    },
+    "fixed_threshold": {
+      "policy": "fixed_threshold",
+      "mean_quality": 0.5797502758117219,
+      "mean_cost": 2.3386666666666667,
+      "expensive_fraction": 0.33466666666666667
+    },
+    "oracle": {
+      "policy": "oracle",
+      "mean_quality": 0.7706320409526924,
+      "mean_cost": 3.704,
+      "expensive_fraction": 0.676
+    },
+    "gate_myopic": {
+      "policy": "gate_myopic",
+      "mean_quality": 0.6017493202436021,
+      "mean_cost": 2.6026666666666665,
+      "expensive_fraction": 0.40066666666666667
+    },
+    "gate_delayed": {
+      "policy": "gate_delayed",
+      "mean_quality": 0.7729408374849741,
+      "mean_cost": 3.9013333333333335,
+      "expensive_fraction": 0.7253333333333334
+    }
+  },
+  "12": {
+    "always_cheap": {
+      "policy": "always_cheap",
+      "mean_quality": 0.5016883589163068,
+      "mean_cost": 1.0,
+      "expensive_fraction": 0.0
+    },
+    "always_expensive": {
+      "policy": "always_expensive",
+      "mean_quality": 0.763286834737361,
+      "mean_cost": 5.0,
+      "expensive_fraction": 1.0
+    },
+    "fixed_threshold": {
+      "policy": "fixed_threshold",
+      "mean_quality": 0.5834353840437035,
+      "mean_cost": 2.3253333333333335,
+      "expensive_fraction": 0.3313333333333333
+    },
+    "oracle": {
+      "policy": "oracle",
+      "mean_quality": 0.7654645767417335,
+      "mean_cost": 3.6346666666666665,
+      "expensive_fraction": 0.6586666666666666
+    },
+    "gate_myopic": {
+      "policy": "gate_myopic",
+      "mean_quality": 0.5985127926032774,
+      "mean_cost": 2.552,
+      "expensive_fraction": 0.388
+    },
+    "gate_delayed": {
+      "policy": "gate_delayed",
+      "mean_quality": 0.7644045987872491,
+      "mean_cost": 3.7706666666666666,
+      "expensive_fraction": 0.6926666666666667
+    }
+  },
+  "13": {
+    "always_cheap": {
+      "policy": "always_cheap",
+      "mean_quality": 0.5000418792185428,
+      "mean_cost": 1.0,
+      "expensive_fraction": 0.0
+    },
+    "always_expensive": {
+      "policy": "always_expensive",
+      "mean_quality": 0.7678807431787064,
+      "mean_cost": 5.0,
+      "expensive_fraction": 1.0
+    },
+    "fixed_threshold": {
+      "policy": "fixed_threshold",
+      "mean_quality": 0.5811578075116747,
+      "mean_cost": 2.2746666666666666,
+      "expensive_fraction": 0.31866666666666665
+    },
+    "oracle": {
+      "policy": "oracle",
+      "mean_quality": 0.7701788590673113,
+      "mean_cost": 3.6586666666666665,
+      "expensive_fraction": 0.6646666666666666
+    },
+    "gate_myopic": {
+      "policy": "gate_myopic",
+      "mean_quality": 0.5958745353197418,
+      "mean_cost": 2.498666666666667,
+      "expensive_fraction": 0.37466666666666665
+    },
+    "gate_delayed": {
+      "policy": "gate_delayed",
+      "mean_quality": 0.7691820600585317,
+      "mean_cost": 3.944,
+      "expensive_fraction": 0.736
+    }
+  },
+  "14": {
+    "always_cheap": {
+      "policy": "always_cheap",
+      "mean_quality": 0.4992969523599849,
+      "mean_cost": 1.0,
+      "expensive_fraction": 0.0
+    },
+    "always_expensive": {
+      "policy": "always_expensive",
+      "mean_quality": 0.7663826574085084,
+      "mean_cost": 5.0,
+      "expensive_fraction": 1.0
+    },
+    "fixed_threshold": {
+      "policy": "fixed_threshold",
+      "mean_quality": 0.5774485472587043,
+      "mean_cost": 2.2666666666666666,
+      "expensive_fraction": 0.31666666666666665
+    },
+    "oracle": {
+      "policy": "oracle",
+      "mean_quality": 0.7693773589113508,
+      "mean_cost": 3.6426666666666665,
+      "expensive_fraction": 0.6606666666666666
+    },
+    "gate_myopic": {
+      "policy": "gate_myopic",
+      "mean_quality": 0.5998475367522585,
+      "mean_cost": 2.512,
+      "expensive_fraction": 0.378
+    },
+    "gate_delayed": {
+      "policy": "gate_delayed",
+      "mean_quality": 0.7701674837546703,
+      "mean_cost": 3.7786666666666666,
+      "expensive_fraction": 0.6946666666666667
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# Build / packaging artifacts (regenerate with `python -m build`, don't commit)
+dist/
+dist_release/
+build/
+*.egg-info/
+
+# Test / cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local environments
+.venv/
+venv/
+
+# Redundant packaged bundle (the repo itself, zipped) -- the unpacked
+# source is what's versioned; this file duplicated it during local handoff.
+arbiter_gate_full_mvp.zip

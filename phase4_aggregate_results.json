@@ -1,0 +1,41 @@
+{
+  "protocol": "PHASE4_PREREG.md",
+  "model": "qwen2.5:7b",
+  "device": "gpu",
+  "validation_seeds": [10, 11, 12, 13, 14],
+  "tasks_per_seed": 30,
+  "total_validation_tasks": 150,
+  "means": {
+    "always_quick_quality": 0.9133333333333333,
+    "gate_quality": 0.9566666666666667,
+    "always_deep_quality": 0.995,
+    "always_quick_warm_seconds": 0.6834666666666667,
+    "gate_warm_seconds": 0.8559333333333333,
+    "always_deep_warm_seconds": 1.0838666666666668,
+    "gate_quality_gain_over_quick": 0.043333333333333335,
+    "gate_latency_saving_vs_deep": 0.21029646943043434
+  },
+  "standard_errors": {
+    "always_quick_quality": 0.016158932858054413,
+    "gate_quality": 0.014766704288891127,
+    "always_deep_quality": 0.0020412414523193075,
+    "always_quick_warm_seconds": 0.01403551051994746,
+    "gate_warm_seconds": 0.026676123323218393,
+    "always_deep_warm_seconds": 0.012749553369083559
+  },
+  "per_seed": [
+    {"seed": 10, "quick": 0.95, "gate": 0.95, "deep": 0.9916666666666667, "gate_seconds": 0.799, "deep_seconds": 1.0863333333333334},
+    {"seed": 11, "quick": 0.8666666666666667, "gate": 0.9083333333333333, "deep": 0.9916666666666667, "gate_seconds": 0.7936666666666666, "deep_seconds": 1.1183333333333332},
+    {"seed": 12, "quick": 0.95, "gate": 0.9583333333333334, "deep": 0.9916666666666667, "gate_seconds": 0.858, "deep_seconds": 1.039},
+    {"seed": 13, "quick": 0.9, "gate": 0.9666666666666667, "deep": 1.0, "gate_seconds": 0.9033333333333334, "deep_seconds": 1.0853333333333335},
+    {"seed": 14, "quick": 0.9, "gate": 1.0, "deep": 1.0, "gate_seconds": 0.9256666666666666, "deep_seconds": 1.0903333333333334}
+  ],
+  "preregistered_gate": {
+    "required_quality_gain_over_quick": 0.05,
+    "observed_quality_gain_over_quick": 0.043333333333333335,
+    "required_latency_below_deep": true,
+    "observed_latency_below_deep": true,
+    "passed": false
+  },
+  "verdict": "INTEGRATION_AND_PARETO_SIGNAL_CONFIRMED / PREREGISTERED_PERFORMANCE_GATE_FAILED"
+}

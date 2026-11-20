@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arbiter-gate"
+version = "0.2.1"
+description = "Measured counterfactual-advantage gating between a cheap and an expensive agent path, with delayed/multi-step outcome reporting and automatic cooldown on harm."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["agents", "llm", "routing", "cost-optimization", "arbiter", "gating"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+# The `bench` subpackage holds this project's own research/validation
+# harnesses (Phase 0-6 task banks and experiment drivers) -- useful for
+# reproducing the published validation results, but not part of the
+# production SDK surface. It stays in the repo and importable when run
+# from a checkout, but is left out of the built wheel/sdist on purpose,
+# so `pip install arbiter-gate` gives a minimal, dependency-free package.
+[tool.setuptools.packages.find]
+include = ["arbiter_gate", "arbiter_gate.core", "arbiter_gate.adapters", "arbiter_gate.integrations"]
+
+[tool.setuptools.package-data]
+arbiter_gate = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

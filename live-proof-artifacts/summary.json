@@ -1,0 +1,72 @@
+{
+  "all_final_deployments_passed": true,
+  "audit_log": "decision_audit.jsonl",
+  "decisions": 12,
+  "final_routes": {
+    "auth": "deep",
+    "docs": "cheap",
+    "migration": "deep",
+    "refactor": "cheap"
+  },
+  "gate_diagnostics": {
+    "cooldown": {
+      "auth-sensitive": {
+        "blocked_in_a_row": 0,
+        "cooldown_remaining": 0,
+        "negative_streak": 0
+      },
+      "database-migration": {
+        "blocked_in_a_row": 0,
+        "cooldown_remaining": 0,
+        "negative_streak": 0
+      },
+      "docs-only": {
+        "blocked_in_a_row": 1,
+        "cooldown_remaining": 0,
+        "negative_streak": 0
+      },
+      "mechanical-refactor": {
+        "blocked_in_a_row": 1,
+        "cooldown_remaining": 0,
+        "negative_streak": 0
+      }
+    },
+    "decisions_per_bucket": {
+      "auth-sensitive": 3,
+      "database-migration": 3,
+      "docs-only": 3,
+      "mechanical-refactor": 3
+    },
+    "value": {
+      "buckets": {
+        "auth-sensitive": {
+          "count": 2,
+          "lcb": 1.0,
+          "mean": 1.0,
+          "stderr": 0.0
+        },
+        "database-migration": {
+          "count": 2,
+          "lcb": 1.0,
+          "mean": 1.0,
+          "stderr": 0.0
+        },
+        "docs-only": {
+          "count": 2,
+          "lcb": 0.0,
+          "mean": 0.0,
+          "stderr": 0.0
+        },
+        "mechanical-refactor": {
+          "count": 2,
+          "lcb": 0.0,
+          "mean": 0.0,
+          "stderr": 0.0
+        }
+      },
+      "pending_open": 0
+    }
+  },
+  "rounds": 3,
+  "verdict": "LIVE_CI_PROOF_PASSED"
+}

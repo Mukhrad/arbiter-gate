@@ -1,0 +1,210 @@
+{"task_id": "arith_12", "call": "deep_attempt1", "elapsed_s": 22.75, "reply": "Candidate D correctly implements the specification by applying the linear transform x*a + b. \nCandidate A incorrectly multiplies x by the sum of a and b, and Candidates B and C do not apply the scaling factor correctly.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "arith_12", "call": "deep_result", "chosen": "D", "n_calls": 1, "quality": 1.0}
+{"task_id": "arith_12", "call": "quick", "elapsed_s": 13.53, "reply": "Candidate D applies the correct linear transformation x*a + b.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "arith_12", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_12", "call": "decision", "index": 0, "bucket": "arith_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "logic_14", "call": "deep_attempt1", "elapsed_s": 17.06, "reply": "Candidate A and Candidate C pass the tests but do not fully meet the specification. Candidate B is incorrect. Candidate D correctly implements the specification. Answer: D", "parsed_letter": "D"}
+{"task_id": "logic_14", "call": "deep_result", "chosen": "D", "n_calls": 1, "quality": 1.0}
+{"task_id": "logic_14", "call": "quick", "elapsed_s": 11.83, "reply": "Candidate D correctly implements the specification by requiring both conditions to be true. Answer: D", "parsed_letter": "D"}
+{"task_id": "logic_14", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_14", "call": "decision", "index": 1, "bucket": "logic_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "boundary_3", "call": "deep_attempt1", "elapsed_s": 16.07, "reply": "Candidate D checks the condition for x to be in the inclusive range [lo, hi], which is the correct implementation.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "boundary_3", "call": "deep_result", "chosen": "D", "n_calls": 1, "quality": 1.0}
+{"task_id": "boundary_3", "call": "quick", "elapsed_s": 11.44, "reply": "Candidate D checks if x is within the inclusive range of lo and hi.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "boundary_3", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_3", "call": "decision", "index": 2, "bucket": "boundary_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "logic_7", "call": "deep_attempt1", "elapsed_s": 23.93, "reply": "Candidate A incorrectly returns True if `has_id` is False, regardless of age. Candidate B returns True if either condition is met, not both. Candidate D requires `age` to be strictly greater than `min_age`, not just greater than or equal. Candidate C correctly returns True only if both conditions are met.\n\nAnswer: C", "parsed_letter": "C"}
+{"task_id": "logic_7", "call": "deep_result", "chosen": "C", "n_calls": 1, "quality": 1.0}
+{"task_id": "logic_7", "call": "quick", "elapsed_s": 12.53, "reply": "Candidate C checks both conditions correctly: age is at least min_age AND has_id is true. Answer: C", "parsed_letter": "C"}
+{"task_id": "logic_7", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_7", "call": "decision", "index": 3, "bucket": "logic_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "arith_13", "call": "deep_attempt1", "elapsed_s": 19.83, "reply": "Candidate A correctly implements the specification by returning the result of x * a + b. The other candidates either add a and b incorrectly or subtract b instead of adding it.\n\nAnswer: A", "parsed_letter": "A"}
+{"task_id": "arith_13", "call": "deep_result", "chosen": "A", "n_calls": 1, "quality": 1.0}
+{"task_id": "arith_13", "call": "quick", "elapsed_s": 10.6, "reply": "Candidate A applies the correct linear transformation x*a + b. Answer: A", "parsed_letter": "A"}
+{"task_id": "arith_13", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_13", "call": "decision", "index": 4, "bucket": "arith_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "arith_14", "call": "deep_attempt1", "elapsed_s": 12.68, "reply": "Candidate B correctly implements the specification by performing the linear transformation x*a + b. Answer: B", "parsed_letter": "B"}
+{"task_id": "arith_14", "call": "deep_result", "chosen": "B", "n_calls": 1, "quality": 1.0}
+{"task_id": "arith_14", "call": "quick", "elapsed_s": 10.19, "reply": "Candidate B applies the correct linear transformation x*a + b.\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "arith_14", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_14", "call": "decision", "index": 5, "bucket": "arith_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "arith_3", "call": "deep_attempt1", "elapsed_s": 20.05, "reply": "Candidate B correctly implements the specification by returning the result of x*a + b. \nCandidate A subtracts b instead of adding, while Candidate C incorrectly multiplies a and b with x, and Candidate D simply adds a and b to x without scaling. \nAnswer: B", "parsed_letter": "B"}
+{"task_id": "arith_3", "call": "deep_result", "chosen": "B", "n_calls": 1, "quality": 1.0}
+{"task_id": "arith_3", "call": "quick", "elapsed_s": 9.91, "reply": "Candidate B applies the correct linear transformation x*a + b. Answer: B", "parsed_letter": "B"}
+{"task_id": "arith_3", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_3", "call": "decision", "index": 6, "bucket": "arith_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "boundary_11", "call": "deep_attempt1", "elapsed_s": 31.89, "reply": "Candidate A uses `lo <= x < hi`, which correctly includes `x == lo` but excludes `x == hi`, contradicting the specification. Candidate B uses `lo < x <= hi`, which excludes `x == lo` but includes `x == hi`. Candidate C uses `lo < x < hi`, which excludes both `x == lo` and `x == hi`. Candidate D uses `lo <= x <= hi`, which correctly includes both `x == lo` and `x == hi`.\n\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "boundary_11", "call": "deep_result", "chosen": "D", "n_calls": 1, "quality": 1.0}
+{"task_id": "boundary_11", "call": "quick", "elapsed_s": 10.5, "reply": "Candidate D uses the correct inclusive checks for both endpoints.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "boundary_11", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_11", "call": "decision", "index": 7, "bucket": "boundary_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "boundary_5", "call": "deep_attempt1", "elapsed_s": 23.55, "reply": "Candidate A uses strict inequalities, which means it will not include the endpoints. Candidate B includes the lower endpoint but not the upper. Candidate C includes the upper endpoint but not the lower. Only Candidate D uses the correct inequalities to include both endpoints.\n\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "boundary_5", "call": "deep_result", "chosen": "D", "n_calls": 1, "quality": 1.0}
+{"task_id": "boundary_5", "call": "quick", "elapsed_s": 10.79, "reply": "Candidate D checks if x is in the range including both endpoints as required. Answer: D", "parsed_letter": "D"}
+{"task_id": "boundary_5", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_5", "call": "decision", "index": 8, "bucket": "boundary_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "logic_18", "call": "deep_attempt1", "elapsed_s": 23.76, "reply": "Candidate A incorrectly uses `not has_id`, which inverts the requirement. Candidates B and C both pass the tests but C uses `>` instead of `>=`. Candidate D uses `or` instead of `and`. Answer: B", "parsed_letter": "B"}
+{"task_id": "logic_18", "call": "deep_result", "chosen": "B", "n_calls": 1, "quality": 1.0}
+{"task_id": "logic_18", "call": "quick", "elapsed_s": 11.02, "reply": "Candidate B uses the correct logical conditions to satisfy the specification. Answer: B", "parsed_letter": "B"}
+{"task_id": "logic_18", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_18", "call": "decision", "index": 9, "bucket": "logic_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "logic_5", "call": "deep_attempt1", "elapsed_s": 25.68, "reply": "Candidate A incorrectly returns True when `has_id` is False, even if `age` is greater than or equal to `min_age`. Candidate B correctly returns True only when both conditions are met. Candidate C incorrectly returns True as soon as `age` is greater than or equal to `min_age`, regardless of `has_id`. Candidate D correctly implements the specification.\n\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "logic_5", "call": "deep_result", "chosen": "B", "n_calls": 1, "quality": 0.75}
+{"task_id": "logic_5", "call": "quick", "elapsed_s": 11.67, "reply": "Candidate D correctly implements the specification by requiring both conditions to be true. Answer: D", "parsed_letter": "D"}
+{"task_id": "logic_5", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_5", "call": "decision", "index": 10, "bucket": "logic_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "B", "correct_label": "D", "deployed_quality": 0.75, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "boundary_18", "call": "deep_attempt1", "elapsed_s": 23.18, "reply": "Candidate A checks for inclusive lower bound and exclusive upper bound, which is incorrect. Candidate B checks for exclusive lower and upper bounds, which is also incorrect. Candidate C checks for exclusive lower and inclusive upper bound, which is incorrect. Candidate D checks for inclusive lower and upper bounds, which matches the specification. Answer: D", "parsed_letter": "D"}
+{"task_id": "boundary_18", "call": "deep_result", "chosen": "D", "n_calls": 1, "quality": 1.0}
+{"task_id": "boundary_18", "call": "quick", "elapsed_s": 12.13, "reply": "Candidate D checks if x is between lo and hi, inclusive of both endpoints. Answer: D", "parsed_letter": "D"}
+{"task_id": "boundary_18", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_18", "call": "decision", "index": 11, "bucket": "boundary_bug", "reason": "exploring", "use_expensive": true, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "boundary_0", "call": "quick", "elapsed_s": 9.83, "reply": "Candidate B correctly includes both endpoints in the range.\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "boundary_0", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_0", "call": "decision", "index": 12, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_9", "call": "quick", "elapsed_s": 9.68, "reply": "Candidate B correctly includes both endpoints. Answer: B", "parsed_letter": "B"}
+{"task_id": "boundary_9", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_9", "call": "decision", "index": 13, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_13", "call": "quick", "elapsed_s": 10.85, "reply": "Candidate A uses the correct logical conditions for eligibility. Answer: A", "parsed_letter": "A"}
+{"task_id": "logic_13", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_13", "call": "decision", "index": 14, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_1", "call": "quick", "elapsed_s": 17.82, "reply": "Candidate A uses a strict greater than operator, which would make the function return False for the minimum age. Candidate B uses 'or' instead of 'and', which doesn't satisfy both conditions. Candidate C incorrectly negates the has_id condition. \nAnswer: D", "parsed_letter": "D"}
+{"task_id": "logic_1", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_1", "call": "decision", "index": 15, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_1", "call": "quick", "elapsed_s": 10.11, "reply": "Candidate B checks for inclusive bounds on both endpoints.\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "boundary_1", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_1", "call": "decision", "index": 16, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_18", "call": "quick", "elapsed_s": 9.98, "reply": "Candidate A applies the correct linear transformation x*a + b. Answer: A", "parsed_letter": "A"}
+{"task_id": "arith_18", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_18", "call": "decision", "index": 17, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_19", "call": "quick", "elapsed_s": 9.97, "reply": "Candidate C applies the correct linear transformation x*a + b. Answer: C", "parsed_letter": "C"}
+{"task_id": "arith_19", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_19", "call": "decision", "index": 18, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_6", "call": "quick", "elapsed_s": 14.44, "reply": "Candidate A uses 'or' instead of 'and', and Candidate B incorrectly negates has_id. Candidate C uses '>' instead of '>='.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "logic_6", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_6", "call": "decision", "index": 19, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_19", "call": "quick", "elapsed_s": 10.45, "reply": "Candidate B includes both endpoints as required by the specification.\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "boundary_19", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_19", "call": "decision", "index": 20, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_15", "call": "quick", "elapsed_s": 10.38, "reply": "Candidate B applies the correct linear transformation x*a + b.\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "arith_15", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_15", "call": "decision", "index": 21, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_1", "call": "quick", "elapsed_s": 9.59, "reply": "Candidate D applies the correct linear transformation x*a + b.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "arith_1", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_1", "call": "decision", "index": 22, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_15", "call": "quick", "elapsed_s": 10.76, "reply": "Candidate A checks if x is within the inclusive range as specified.\nAnswer: A", "parsed_letter": "A"}
+{"task_id": "boundary_15", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_15", "call": "decision", "index": 23, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_16", "call": "quick", "elapsed_s": 17.32, "reply": "Candidate A uses `not has_id`, which inverts the requirement. Candidate C uses `or` instead of `and`, which doesn't meet the specification. Candidate B incorrectly uses `>` instead of `>=`. \nAnswer: D", "parsed_letter": "D"}
+{"task_id": "logic_16", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_16", "call": "decision", "index": 24, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_4", "call": "quick", "elapsed_s": 12.78, "reply": "Candidate B correctly implements the requirement that both age must be greater than or equal to min_age and has_id must be True. Answer: B", "parsed_letter": "B"}
+{"task_id": "logic_4", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_4", "call": "decision", "index": 25, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_9", "call": "quick", "elapsed_s": 10.95, "reply": "Candidate D correctly implements the specification by requiring both conditions to be true. Answer: D", "parsed_letter": "D"}
+{"task_id": "logic_9", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_9", "call": "decision", "index": 26, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_3", "call": "quick", "elapsed_s": 16.35, "reply": "Candidate A uses a strict greater than operator, which does not include the minimum age. Candidate C uses a logical OR instead of AND. Candidate B incorrectly negates has_id. Candidate D correctly implements the specification.\n\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "logic_3", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_3", "call": "decision", "index": 27, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_6", "call": "quick", "elapsed_s": 10.85, "reply": "Candidate D applies the correct linear transformation x*a + b.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "arith_6", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_6", "call": "decision", "index": 28, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_6", "call": "quick", "elapsed_s": 10.93, "reply": "Candidate D checks if x is in the range including both endpoints as required.\n\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "boundary_6", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_6", "call": "decision", "index": 29, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_9", "call": "quick", "elapsed_s": 9.42, "reply": "Candidate B applies the correct linear transformation x*a + b. Answer: B", "parsed_letter": "B"}
+{"task_id": "arith_9", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_9", "call": "decision", "index": 30, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_16", "call": "quick", "elapsed_s": 9.99, "reply": "Candidate B applies the correct linear transformation x*a + b.\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "arith_16", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_16", "call": "decision", "index": 31, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_10", "call": "quick", "elapsed_s": 9.71, "reply": "Candidate C applies the correct linear transformation x*a + b.\nAnswer: C", "parsed_letter": "C"}
+{"task_id": "arith_10", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_10", "call": "decision", "index": 32, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_8", "call": "quick", "elapsed_s": 9.56, "reply": "Candidate B applies the correct linear transformation x*a + b.\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "arith_8", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_8", "call": "decision", "index": 33, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_7", "call": "quick", "elapsed_s": 10.84, "reply": "Candidate B includes the endpoints, which is what the specification requires. Answer: B", "parsed_letter": "B"}
+{"task_id": "boundary_7", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_7", "call": "decision", "index": 34, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_10", "call": "quick", "elapsed_s": 11.45, "reply": "Candidate C checks if x is between lo and hi, inclusive of both endpoints. Answer: C", "parsed_letter": "C"}
+{"task_id": "boundary_10", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_10", "call": "decision", "index": 35, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_17", "call": "quick", "elapsed_s": 10.7, "reply": "Candidate D checks if x is within the range including both endpoints. Answer: D", "parsed_letter": "D"}
+{"task_id": "boundary_17", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_17", "call": "decision", "index": 36, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_4", "call": "deep_attempt1", "elapsed_s": 15.52, "reply": "Candidate B correctly includes both the lower and upper bounds. Answer: B", "parsed_letter": "B"}
+{"task_id": "boundary_4", "call": "deep_result", "chosen": "B", "n_calls": 1, "quality": 1.0}
+{"task_id": "boundary_4", "call": "quick", "elapsed_s": 9.94, "reply": "Candidate B includes the endpoints as specified in the requirement. Answer: B", "parsed_letter": "B"}
+{"task_id": "boundary_4", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_4", "call": "decision", "index": 37, "bucket": "boundary_bug", "reason": "probe", "use_expensive": true, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "boundary_2", "call": "quick", "elapsed_s": 9.89, "reply": "Candidate C checks for the inclusive range correctly. Answer: C", "parsed_letter": "C"}
+{"task_id": "boundary_2", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_2", "call": "decision", "index": 38, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_2", "call": "deep_attempt1", "elapsed_s": 15.23, "reply": "Candidate A applies the correct formula x*a + b. The other candidates either add a and b incorrectly or subtract b instead of adding it.\n\nAnswer: A", "parsed_letter": "A"}
+{"task_id": "arith_2", "call": "deep_result", "chosen": "A", "n_calls": 1, "quality": 1.0}
+{"task_id": "arith_2", "call": "quick", "elapsed_s": 10.42, "reply": "Candidate A applies the correct linear transformation x*a + b. Answer: A", "parsed_letter": "A"}
+{"task_id": "arith_2", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_2", "call": "decision", "index": 39, "bucket": "arith_bug", "reason": "probe", "use_expensive": true, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "arith_11", "call": "quick", "elapsed_s": 9.78, "reply": "Candidate D applies the correct linear transformation x*a + b.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "arith_11", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_11", "call": "decision", "index": 40, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_17", "call": "quick", "elapsed_s": 18.4, "reply": "Candidate A uses `not has_id`, which inverts the requirement. Candidate C uses `or` instead of `and`, which doesn't meet the specification. Candidate B uses `>` instead of `>=`, and Candidate D correctly implements the specification. Answer: D", "parsed_letter": "D"}
+{"task_id": "logic_17", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_17", "call": "decision", "index": 41, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_8", "call": "quick", "elapsed_s": 10.9, "reply": "Candidate C checks if x is within the inclusive range of lo and hi.\nAnswer: C", "parsed_letter": "C"}
+{"task_id": "boundary_8", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_8", "call": "decision", "index": 42, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_10", "call": "quick", "elapsed_s": 10.8, "reply": "Candidate D correctly implements the specification by requiring both conditions to be true. Answer: D", "parsed_letter": "D"}
+{"task_id": "logic_10", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_10", "call": "decision", "index": 43, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_19", "call": "deep_attempt1", "elapsed_s": 18.49, "reply": "Candidate A incorrectly uses a strict greater than (>) instead of greater than or equal to (>=), and Candidate D inverts the has_id condition. Candidate B correctly implements the specification. Answer: B", "parsed_letter": "B"}
+{"task_id": "logic_19", "call": "deep_result", "chosen": "B", "n_calls": 1, "quality": 1.0}
+{"task_id": "logic_19", "call": "quick", "elapsed_s": 10.66, "reply": "Candidate B uses the correct logical conditions to meet the specification. Answer: B", "parsed_letter": "B"}
+{"task_id": "logic_19", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_19", "call": "decision", "index": 44, "bucket": "logic_bug", "reason": "probe", "use_expensive": true, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": true}
+{"task_id": "arith_17", "call": "quick", "elapsed_s": 10.1, "reply": "Candidate B correctly implements the linear transform x*a + b. Answer: B", "parsed_letter": "B"}
+{"task_id": "arith_17", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_17", "call": "decision", "index": 45, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_14", "call": "quick", "elapsed_s": 9.86, "reply": "Candidate B correctly includes both endpoints in the range. Answer: B", "parsed_letter": "B"}
+{"task_id": "boundary_14", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_14", "call": "decision", "index": 46, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_4", "call": "quick", "elapsed_s": 9.37, "reply": "Candidate A applies the correct linear transformation x*a + b. Answer: A", "parsed_letter": "A"}
+{"task_id": "arith_4", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_4", "call": "decision", "index": 47, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_13", "call": "quick", "elapsed_s": 11.39, "reply": "Candidate C checks if x is in the range including both endpoints as required. Answer: C", "parsed_letter": "C"}
+{"task_id": "boundary_13", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_13", "call": "decision", "index": 48, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_15", "call": "quick", "elapsed_s": 12.7, "reply": "Candidate A uses a strict greater than which doesn't meet the specification. Candidate D correctly implements the specification. Answer: D", "parsed_letter": "D"}
+{"task_id": "logic_15", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_15", "call": "decision", "index": 49, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_8", "call": "quick", "elapsed_s": 10.49, "reply": "Candidate C uses the correct logical conditions to meet the specification. Answer: C", "parsed_letter": "C"}
+{"task_id": "logic_8", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_8", "call": "decision", "index": 50, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_12", "call": "quick", "elapsed_s": 11.85, "reply": "Candidate A uses 'and' for both conditions, which correctly implements the specification. Answer: A", "parsed_letter": "A"}
+{"task_id": "logic_12", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_12", "call": "decision", "index": 51, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_11", "call": "quick", "elapsed_s": 14.12, "reply": "Candidate A uses 'or' instead of 'and', and Candidate B incorrectly negates has_id. Candidate C uses '>' instead of '>='.\nAnswer: D", "parsed_letter": "D"}
+{"task_id": "logic_11", "call": "quick_result", "chosen": "D", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_11", "call": "decision", "index": 52, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "D", "correct_label": "D", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_7", "call": "quick", "elapsed_s": 9.81, "reply": "Candidate A applies the correct linear transformation x*a + b. Answer: A", "parsed_letter": "A"}
+{"task_id": "arith_7", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_7", "call": "decision", "index": 53, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_0", "call": "quick", "elapsed_s": 13.36, "reply": "Candidate B uses `age >= min_age` which is correct, and also correctly returns `True` only if both conditions are met. Answer: B", "parsed_letter": "B"}
+{"task_id": "logic_0", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_0", "call": "decision", "index": 54, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_12", "call": "quick", "elapsed_s": 11.63, "reply": "Candidate C uses `lo <= x <= hi`, which correctly includes both endpoints.\n\nAnswer: C", "parsed_letter": "C"}
+{"task_id": "boundary_12", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_12", "call": "decision", "index": 55, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "boundary_16", "call": "quick", "elapsed_s": 9.97, "reply": "Candidate B checks for the inclusive range correctly. Answer: B", "parsed_letter": "B"}
+{"task_id": "boundary_16", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "boundary_16", "call": "decision", "index": 56, "bucket": "boundary_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "logic_2", "call": "quick", "elapsed_s": 12.22, "reply": "Candidate C checks both conditions correctly: age must be at least min_age and has_id must be true. Answer: C", "parsed_letter": "C"}
+{"task_id": "logic_2", "call": "quick_result", "chosen": "C", "used_fallback": false, "quality": 1.0}
+{"task_id": "logic_2", "call": "decision", "index": 57, "bucket": "logic_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "C", "correct_label": "C", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_5", "call": "quick", "elapsed_s": 10.02, "reply": "Candidate A applies the correct linear transformation x*a + b.\nAnswer: A", "parsed_letter": "A"}
+{"task_id": "arith_5", "call": "quick_result", "chosen": "A", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_5", "call": "decision", "index": 58, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "A", "correct_label": "A", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}
+{"task_id": "arith_0", "call": "quick", "elapsed_s": 9.58, "reply": "Candidate B applies the correct linear transformation x*a + b.\nAnswer: B", "parsed_letter": "B"}
+{"task_id": "arith_0", "call": "quick_result", "chosen": "B", "used_fallback": false, "quality": 1.0}
+{"task_id": "arith_0", "call": "decision", "index": 59, "bucket": "arith_bug", "reason": "blocked", "use_expensive": false, "chosen_label": "B", "correct_label": "B", "deployed_quality": 1.0, "deployed_cost": 1.0, "shadow_ran": false}

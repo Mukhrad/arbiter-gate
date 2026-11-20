@@ -1,0 +1,337 @@
+{
+  "10": {
+    "always_quick": {
+      "quality_mean": 0.5091666666666667,
+      "quality_sd": 0.49991596516036796,
+      "cost_mean": 1.0,
+      "n": 1200
+    },
+    "always_deep": {
+      "quality_mean": 0.9333333333333333,
+      "quality_sd": 0.24944382578492943,
+      "cost_mean": 1.4391666666666667,
+      "n": 1200
+    },
+    "static_rule": {
+      "quality_mean": 0.9333333333333333,
+      "quality_sd": 0.24944382578492943,
+      "cost_mean": 1.4391666666666667,
+      "n": 1200
+    },
+    "gate_shadow": {
+      "quality_mean": 0.9325,
+      "quality_sd": 0.250885930255166,
+      "cost_mean": 1.4383333333333332,
+      "n": 1200,
+      "shadow_cost_mean": 0.06166666666666667,
+      "diagnostics": {
+        "value": {
+          "buckets": {
+            "multihop": {
+              "mean": 1.0,
+              "count": 4,
+              "stderr": 0.0,
+              "lcb": 1.0
+            },
+            "singlehop": {
+              "mean": 0.0,
+              "count": 70,
+              "stderr": 0.0,
+              "lcb": 0.0
+            }
+          },
+          "pending_open": 1126
+        },
+        "cooldown": {
+          "multihop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 0
+          },
+          "singlehop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 669
+          }
+        },
+        "decisions_per_bucket": {
+          "multihop": 527,
+          "singlehop": 673
+        }
+      }
+    },
+    "_classifier_gap": {
+      "multihop_queries": 608,
+      "misclassified_as_singlehop": 81,
+      "rate": 0.13322368421052633
+    }
+  },
+  "11": {
+    "always_quick": {
+      "quality_mean": 0.5391666666666667,
+      "quality_sd": 0.4984636117333162,
+      "cost_mean": 1.0,
+      "n": 1200
+    },
+    "always_deep": {
+      "quality_mean": 0.9416666666666667,
+      "quality_sd": 0.2343726851737539,
+      "cost_mean": 1.4233333333333333,
+      "n": 1200
+    },
+    "static_rule": {
+      "quality_mean": 0.9416666666666667,
+      "quality_sd": 0.2343726851737539,
+      "cost_mean": 1.4233333333333333,
+      "n": 1200
+    },
+    "gate_shadow": {
+      "quality_mean": 0.9416666666666667,
+      "quality_sd": 0.2343726851737539,
+      "cost_mean": 1.4233333333333333,
+      "n": 1200,
+      "shadow_cost_mean": 0.06333333333333334,
+      "diagnostics": {
+        "value": {
+          "buckets": {
+            "multihop": {
+              "mean": 0.75,
+              "count": 4,
+              "stderr": 0.25,
+              "lcb": 0.5
+            },
+            "singlehop": {
+              "mean": 0.0,
+              "count": 72,
+              "stderr": 0.0,
+              "lcb": 0.0
+            }
+          },
+          "pending_open": 1124
+        },
+        "cooldown": {
+          "multihop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 0
+          },
+          "singlehop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 688
+          }
+        },
+        "decisions_per_bucket": {
+          "multihop": 508,
+          "singlehop": 692
+        }
+      }
+    },
+    "_classifier_gap": {
+      "multihop_queries": 585,
+      "misclassified_as_singlehop": 77,
+      "rate": 0.13162393162393163
+    }
+  },
+  "12": {
+    "always_quick": {
+      "quality_mean": 0.5025,
+      "quality_sd": 0.499993749960937,
+      "cost_mean": 1.0,
+      "n": 1200
+    },
+    "always_deep": {
+      "quality_mean": 0.9266666666666666,
+      "quality_sd": 0.2606828639468954,
+      "cost_mean": 1.4333333333333333,
+      "n": 1200
+    },
+    "static_rule": {
+      "quality_mean": 0.9266666666666666,
+      "quality_sd": 0.2606828639468954,
+      "cost_mean": 1.4333333333333333,
+      "n": 1200
+    },
+    "gate_shadow": {
+      "quality_mean": 0.9266666666666666,
+      "quality_sd": 0.2606828639468954,
+      "cost_mean": 1.4333333333333333,
+      "n": 1200,
+      "shadow_cost_mean": 0.0625,
+      "diagnostics": {
+        "value": {
+          "buckets": {
+            "multihop": {
+              "mean": 1.0,
+              "count": 4,
+              "stderr": 0.0,
+              "lcb": 1.0
+            },
+            "singlehop": {
+              "mean": 0.0,
+              "count": 71,
+              "stderr": 0.0,
+              "lcb": 0.0
+            }
+          },
+          "pending_open": 1125
+        },
+        "cooldown": {
+          "multihop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 0
+          },
+          "singlehop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 676
+          }
+        },
+        "decisions_per_bucket": {
+          "multihop": 520,
+          "singlehop": 680
+        }
+      }
+    },
+    "_classifier_gap": {
+      "multihop_queries": 615,
+      "misclassified_as_singlehop": 95,
+      "rate": 0.15447154471544716
+    }
+  },
+  "13": {
+    "always_quick": {
+      "quality_mean": 0.4891666666666667,
+      "quality_sd": 0.4998826251120246,
+      "cost_mean": 1.0,
+      "n": 1200
+    },
+    "always_deep": {
+      "quality_mean": 0.9266666666666666,
+      "quality_sd": 0.2606828639468954,
+      "cost_mean": 1.455,
+      "n": 1200
+    },
+    "static_rule": {
+      "quality_mean": 0.9266666666666666,
+      "quality_sd": 0.2606828639468954,
+      "cost_mean": 1.455,
+      "n": 1200
+    },
+    "gate_shadow": {
+      "quality_mean": 0.9266666666666666,
+      "quality_sd": 0.2606828639468954,
+      "cost_mean": 1.455,
+      "n": 1200,
+      "shadow_cost_mean": 0.060833333333333336,
+      "diagnostics": {
+        "value": {
+          "buckets": {
+            "multihop": {
+              "mean": 1.0,
+              "count": 4,
+              "stderr": 0.0,
+              "lcb": 1.0
+            },
+            "singlehop": {
+              "mean": 0.0,
+              "count": 69,
+              "stderr": 0.0,
+              "lcb": 0.0
+            }
+          },
+          "pending_open": 1127
+        },
+        "cooldown": {
+          "multihop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 0
+          },
+          "singlehop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 650
+          }
+        },
+        "decisions_per_bucket": {
+          "multihop": 546,
+          "singlehop": 654
+        }
+      }
+    },
+    "_classifier_gap": {
+      "multihop_queries": 635,
+      "misclassified_as_singlehop": 89,
+      "rate": 0.14015748031496064
+    }
+  },
+  "14": {
+    "always_quick": {
+      "quality_mean": 0.49583333333333335,
+      "quality_sd": 0.4999826385874702,
+      "cost_mean": 1.0,
+      "n": 1200
+    },
+    "always_deep": {
+      "quality_mean": 0.9258333333333333,
+      "quality_sd": 0.2620419283668593,
+      "cost_mean": 1.4416666666666667,
+      "n": 1200
+    },
+    "static_rule": {
+      "quality_mean": 0.9258333333333333,
+      "quality_sd": 0.2620419283668593,
+      "cost_mean": 1.4416666666666667,
+      "n": 1200
+    },
+    "gate_shadow": {
+      "quality_mean": 0.9258333333333333,
+      "quality_sd": 0.2620419283668593,
+      "cost_mean": 1.4416666666666667,
+      "n": 1200,
+      "shadow_cost_mean": 0.06166666666666667,
+      "diagnostics": {
+        "value": {
+          "buckets": {
+            "multihop": {
+              "mean": 1.0,
+              "count": 4,
+              "stderr": 0.0,
+              "lcb": 1.0
+            },
+            "singlehop": {
+              "mean": 0.0,
+              "count": 70,
+              "stderr": 0.0,
+              "lcb": 0.0
+            }
+          },
+          "pending_open": 1126
+        },
+        "cooldown": {
+          "multihop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 0
+          },
+          "singlehop": {
+            "cooldown_remaining": 0,
+            "negative_streak": 0,
+            "blocked_in_a_row": 666
+          }
+        },
+        "decisions_per_bucket": {
+          "multihop": 530,
+          "singlehop": 670
+        }
+      }
+    },
+    "_classifier_gap": {
+      "multihop_queries": 623,
+      "misclassified_as_singlehop": 93,
+      "rate": 0.1492776886035313
+    }
+  }
+}

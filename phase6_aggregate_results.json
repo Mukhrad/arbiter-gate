@@ -1,0 +1,103 @@
+{
+  "per_seed": [
+    {
+      "seed": 20,
+      "quick": 0.9083333333333333,
+      "gate": 0.9791666666666666,
+      "deep": 0.9916666666666667,
+      "quick_seconds": 0.6995833333333333,
+      "gate_seconds": 0.8474166666666666,
+      "deep_seconds": 1.0902500000000002,
+      "reasons": {
+        "exploring": 24,
+        "trusted": 34,
+        "blocked": 56,
+        "probe": 6
+      }
+    },
+    {
+      "seed": 21,
+      "quick": 0.9166666666666666,
+      "gate": 0.9916666666666667,
+      "deep": 0.99375,
+      "quick_seconds": 0.6683333333333333,
+      "gate_seconds": 0.8482500000000001,
+      "deep_seconds": 1.0461666666666667,
+      "reasons": {
+        "exploring": 24,
+        "trusted": 32,
+        "blocked": 58,
+        "probe": 6
+      }
+    },
+    {
+      "seed": 22,
+      "quick": 0.8979166666666667,
+      "gate": 0.9729166666666667,
+      "deep": 0.9979166666666667,
+      "quick_seconds": 0.6649999999999999,
+      "gate_seconds": 0.8458333333333333,
+      "deep_seconds": 1.0479166666666666,
+      "reasons": {
+        "exploring": 24,
+        "trusted": 32,
+        "blocked": 58,
+        "probe": 6
+      }
+    },
+    {
+      "seed": 23,
+      "quick": 0.8916666666666667,
+      "gate": 0.9875,
+      "deep": 0.9895833333333334,
+      "quick_seconds": 0.6715,
+      "gate_seconds": 1.0195833333333333,
+      "deep_seconds": 1.02075,
+      "reasons": {
+        "exploring": 24,
+        "trusted": 95,
+        "blocked": 1,
+        "probe": 0
+      }
+    },
+    {
+      "seed": 24,
+      "quick": 0.9104166666666667,
+      "gate": 0.9916666666666667,
+      "deep": 0.9979166666666667,
+      "quick_seconds": 0.6613333333333333,
+      "gate_seconds": 0.8089999999999999,
+      "deep_seconds": 1.0408333333333333,
+      "reasons": {
+        "exploring": 24,
+        "trusted": 32,
+        "blocked": 58,
+        "probe": 6
+      }
+    }
+  ],
+  "means": {
+    "always_quick_quality": 0.905,
+    "gate_quality": 0.9845833333333334,
+    "always_deep_quality": 0.9941666666666666,
+    "always_quick_warm_seconds": 0.6731499999999999,
+    "gate_warm_seconds": 0.8740166666666667,
+    "always_deep_warm_seconds": 1.0491833333333334,
+    "gate_quality_gain_over_quick": 0.07958333333333334,
+    "gate_latency_saving_vs_deep": 0.16695525090943752
+  },
+  "standard_errors": {
+    "always_quick_quality": 0.004497298571858922,
+    "gate_quality": 0.0037034143405481742,
+    "always_deep_quality": 0.0016666666666666607,
+    "gate_warm_seconds": 0.03713664145946546,
+    "always_deep_warm_seconds": 0.011347582953602475
+  },
+  "preregistered_gate": {
+    "required_quality_gain_over_quick": 0.05,
+    "observed_quality_gain_over_quick": 0.07958333333333334,
+    "required_latency_below_deep": true,
+    "observed_latency_below_deep": true,
+    "passed": true
+  }
+}
