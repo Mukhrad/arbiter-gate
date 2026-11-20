@@ -59,6 +59,49 @@ thumbs-up/re-ask signal (which only observes the deployed path) stand in
 for a real counterfactual. See `INTEGRATION_GUIDE.md` for the common
 pitfalls here and how to avoid them.
 
+## Persisting learned state across runs (v0.3.0+)
+
+By default `ArbiterGate` keeps everything in memory, so a new process
+(a new CI run, a new server instance) starts every bucket at zero —
+nothing it learns ever carries over, and nothing can ever leak between
+runs either, because there's no state to leak. That's a safe default,
+but it also means a routing decision in process N+1 never benefits from
+what process N already measured.
+
+`arbiter_gate.integrations` adds an explicit, opt-in way to carry that
+evidence across runs via a plain JSON file:
+
+```python
+from arbiter_gate.integrations import save_state_atomic, load_state_or_new
+
+gate, report = load_state_or_new("gate_state.json", repo_id="org/repo")
+# report == {"loaded": True/False, "reason": "..."} -- log it, don't guess
+... use gate.decide / gate.report_outcome as normal ...
+save_state_atomic(gate, "gate_state.json", repo_id="org/repo")
+```
+
+- **What persists**: the exploration counter per bucket, the settled
+  value-estimator statistics (mean/count/variance), and the cooldown
+  state. **What never persists**: open decision tickets that haven't
+  been reported or abandoned yet — those are tied to the current
+  process's clock and TTL window, so each run closes its own tickets;
+  only settled evidence crosses the boundary.
+- **Crash-safety**: `save_state_atomic` writes to a temp file and
+  `os.replace()`s it over the destination, which is atomic on POSIX and
+  Windows. An interruption mid-write leaves the previous file (or no
+  file, on a first save) fully intact — never a half-written one.
+- **Per-repo isolation**: the saved file is stamped with the `repo_id`
+  you pass in. Loading it with a different `repo_id` refuses to apply
+  it (falls back to a fresh gate by default; `load_state_strict` raises
+  `StateIntegrityError` instead), so a copied or mis-pathed file can't
+  silently contaminate a different repo's learned routing.
+- **What this does *not* claim**: that learning actually improves
+  real-world cost or quality over time at scale — only that evidence
+  correctly survives a process boundary. See
+  `arbiter-gate-demo-target`'s own evidence ladder for where that larger
+  claim currently stands (as of this release: mechanism verified,
+  continuing-benefit-at-scale not yet measured).
+
 ## What's actually validated, and what isn't yet
 
 This isn't a claim made from first principles — it's the result of six

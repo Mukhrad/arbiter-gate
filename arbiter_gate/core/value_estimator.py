@@ -57,6 +57,13 @@ class _BucketStats:
             return float("inf")
         return math.sqrt(max(0.0, self.variance) / self.count)
 
+    def export(self) -> dict:
+        return {"mean": self.mean, "count": self.count, "m2": self._m2}
+
+    @classmethod
+    def from_export(cls, data: dict) -> "_BucketStats":
+        return cls(mean=float(data["mean"]), count=int(data["count"]), _m2=float(data["m2"]))
+
 
 @dataclass
 class PendingDecision:
@@ -150,6 +157,24 @@ class MultiStepValueEstimator:
     def mean(self, bucket: str) -> float:
         stats = self._stats.get(bucket)
         return stats.mean if stats else 0.0
+
+    def export_stats(self) -> dict:
+        """Serializable snapshot of settled per-bucket statistics. Deliberately
+        excludes `_pending` (open decision tickets): those are tied to a single
+        process's `time.monotonic()` clock and TTL window, so carrying them
+        across a process boundary (e.g. a new CI run) would either misapply a
+        stale TTL or silently resurrect tickets whose outcome was never really
+        measured in this run. Each run must open and close its own tickets;
+        only the accumulated evidence (this export) is meant to persist."""
+        return {b: s.export() for b, s in self._stats.items()}
+
+    def load_stats(self, data: dict) -> None:
+        """Restore settled per-bucket statistics exported by `export_stats`.
+        Merges into (does not clear) any stats already present, so this is
+        safe to call on a fresh estimator or, deliberately, on one that has
+        already recorded same-process evidence."""
+        for bucket, bucket_data in data.items():
+            self._stats[bucket] = _BucketStats.from_export(bucket_data)
 
     def diagnostics(self) -> dict:
         return {

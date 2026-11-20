@@ -91,6 +91,40 @@ class ArbiterGate:
         """Close a decision when the caller did not run a counterfactual."""
         return self.value.abandon_decision(decision.decision_id)
 
+    STATE_SCHEMA_VERSION = 1
+
+    def export_state(self) -> dict:
+        """Serializable snapshot of everything this gate has LEARNED so far:
+        the exploration counter per bucket, the settled value-estimator
+        statistics, and the cooldown state. Deliberately excludes any open
+        (not yet reported/abandoned) decision tickets -- see
+        MultiStepValueEstimator.export_stats for why. A caller that persists
+        this and reloads it into a fresh ArbiterGate (e.g. a new CI run, a
+        new process) gets a gate whose very first decision already reflects
+        every prior run's evidence, instead of re-exploring from zero."""
+        return {
+            "schema_version": self.STATE_SCHEMA_VERSION,
+            "decisions_per_bucket": dict(self.decisions_per_bucket),
+            "value_stats": self.value.export_stats(),
+            "cooldown_state": self.cooldown.export_state(),
+        }
+
+    def load_state(self, state: dict) -> None:
+        """Restore a snapshot produced by `export_state`. Raises ValueError on
+        a schema_version this version of the library does not understand,
+        rather than silently misapplying a future/foreign format."""
+        version = state.get("schema_version")
+        if version != self.STATE_SCHEMA_VERSION:
+            raise ValueError(
+                f"ArbiterGate state schema_version {version!r} is not "
+                f"supported by this library version (expects "
+                f"{self.STATE_SCHEMA_VERSION!r}); refusing to load it rather "
+                f"than guess at its meaning."
+            )
+        self.decisions_per_bucket = dict(state.get("decisions_per_bucket", {}))
+        self.value.load_stats(state.get("value_stats", {}))
+        self.cooldown.load_state(state.get("cooldown_state", {}))
+
     def diagnostics(self) -> dict:
         return {
             "value": self.value.diagnostics(),

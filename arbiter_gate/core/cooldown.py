@@ -61,6 +61,22 @@ class CooldownController:
     def note_allowed(self, bucket: str) -> None:
         self._get(bucket).blocked_in_a_row = 0
 
+    def export_state(self) -> dict:
+        return {
+            b: {"cooldown_remaining": s.cooldown_remaining,
+                "negative_streak": s.negative_streak,
+                "blocked_in_a_row": s.blocked_in_a_row}
+            for b, s in self._state.items()
+        }
+
+    def load_state(self, data: dict) -> None:
+        for bucket, bucket_data in data.items():
+            self._state[bucket] = _BucketCooldownState(
+                negative_streak=int(bucket_data["negative_streak"]),
+                cooldown_remaining=int(bucket_data["cooldown_remaining"]),
+                blocked_in_a_row=int(bucket_data["blocked_in_a_row"]),
+            )
+
     def diagnostics(self) -> dict:
         return {
             b: {"cooldown_remaining": s.cooldown_remaining,

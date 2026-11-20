@@ -22,7 +22,7 @@ optional `arbiter_gate.integrations` helpers.
 from .core import ArbiterGate, ArbiterGateConfig, GateDecision
 from .adapters import ShadowExecutionAdapter, ShadowRunResult
 
-__version__ = "0.2.1"
+__version__ = "0.3.0"
 
 __all__ = [
     "ArbiterGate", "ArbiterGateConfig", "GateDecision",
