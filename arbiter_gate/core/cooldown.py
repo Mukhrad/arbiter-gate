@@ -69,13 +69,37 @@ class CooldownController:
             for b, s in self._state.items()
         }
 
-    def load_state(self, data: dict) -> None:
+    def validate_export(self, data: dict) -> dict:
+        """Validate an `export_state()`-shaped payload WITHOUT mutating this
+        controller. Raises on missing fields or a negative count (none of
+        these three fields is ever meaningfully negative). Returns the
+        staged per-bucket state to pass to `apply_staged`."""
+        staged: dict[str, _BucketCooldownState] = {}
         for bucket, bucket_data in data.items():
-            self._state[bucket] = _BucketCooldownState(
-                negative_streak=int(bucket_data["negative_streak"]),
-                cooldown_remaining=int(bucket_data["cooldown_remaining"]),
-                blocked_in_a_row=int(bucket_data["blocked_in_a_row"]),
+            negative_streak = int(bucket_data["negative_streak"])
+            cooldown_remaining = int(bucket_data["cooldown_remaining"])
+            blocked_in_a_row = int(bucket_data["blocked_in_a_row"])
+            if negative_streak < 0 or cooldown_remaining < 0 or blocked_in_a_row < 0:
+                raise ValueError(
+                    f"cooldown state for bucket {bucket!r} must have "
+                    f"non-negative negative_streak/cooldown_remaining/"
+                    f"blocked_in_a_row, got {bucket_data!r}"
+                )
+            staged[bucket] = _BucketCooldownState(
+                negative_streak=negative_streak,
+                cooldown_remaining=cooldown_remaining,
+                blocked_in_a_row=blocked_in_a_row,
             )
+        return staged
+
+    def apply_staged(self, staged: dict) -> None:
+        """Merge state already validated by `validate_export` into this
+        controller. Never raises -- validation already happened."""
+        self._state.update(staged)
+
+    def load_state(self, data: dict) -> None:
+        """Validate-then-merge in one call: `apply_staged(validate_export(data))`."""
+        self.apply_staged(self.validate_export(data))
 
     def diagnostics(self) -> dict:
         return {

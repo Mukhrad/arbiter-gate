@@ -84,25 +84,51 @@ def load_state_or_new(
     Use `load_state_strict` instead if a repo_id mismatch specifically should
     halt the caller rather than silently fall back.
     """
-    gate = ArbiterGate(config)
     path = Path(path)
     if not path.exists():
-        return gate, {"loaded": False, "reason": "no_state_file"}
+        return ArbiterGate(config), {"loaded": False, "reason": "no_state_file"}
     try:
         with open(path, "r", encoding="utf-8") as f:
             payload = json.load(f)
     except (json.JSONDecodeError, OSError, UnicodeDecodeError) as e:
-        return gate, {"loaded": False, "reason": f"unreadable_state_file: {e}"}
+        return ArbiterGate(config), {"loaded": False, "reason": f"unreadable_state_file: {e}"}
+
+    # json.load happily returns a list, string, number, etc. for valid JSON
+    # that isn't an object -- e.g. a file containing just "[]". Reject that
+    # explicitly rather than calling .get() on it and crashing with an
+    # unhandled AttributeError (found and fixed after an independent
+    # reviewer reproduced exactly this with an empty-list state file).
+    if not isinstance(payload, dict):
+        return ArbiterGate(config), {
+            "loaded": False,
+            "reason": f"malformed_state_file: expected a JSON object at the top level, got {type(payload).__name__}",
+        }
+
     stored_repo_id = payload.get("repo_id")
     if stored_repo_id != repo_id:
-        return gate, {
+        return ArbiterGate(config), {
             "loaded": False,
             "reason": f"repo_id_mismatch: file is for {stored_repo_id!r}, expected {repo_id!r}",
         }
+
+    gate_state = payload.get("gate_state")
+    if not isinstance(gate_state, dict):
+        return ArbiterGate(config), {
+            "loaded": False,
+            "reason": f"malformed_state_file: 'gate_state' is not a JSON object (got {type(gate_state).__name__})",
+        }
+
+    # ArbiterGate.load_state is itself all-or-nothing (see its docstring), so
+    # `gate` below is guaranteed untouched if it raises. We still return a
+    # brand-new ArbiterGate on failure rather than the attempted one, as a
+    # second, independent line of defense against ever returning a
+    # partially-mutated gate from this function, no matter how load_state's
+    # own internals might change in the future.
+    gate = ArbiterGate(config)
     try:
-        gate.load_state(payload["gate_state"])
+        gate.load_state(gate_state)
     except (KeyError, ValueError, TypeError) as e:
-        return gate, {"loaded": False, "reason": f"invalid_gate_state: {e}"}
+        return ArbiterGate(config), {"loaded": False, "reason": f"invalid_gate_state: {e}"}
     return gate, {"loaded": True, "reason": "ok"}
 
 

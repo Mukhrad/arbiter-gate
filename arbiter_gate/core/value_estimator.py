@@ -62,7 +62,18 @@ class _BucketStats:
 
     @classmethod
     def from_export(cls, data: dict) -> "_BucketStats":
-        return cls(mean=float(data["mean"]), count=int(data["count"]), _m2=float(data["m2"]))
+        mean = float(data["mean"])
+        count = int(data["count"])
+        m2 = float(data["m2"])
+        if count < 0:
+            raise ValueError(f"bucket stats count must be >= 0, got {count!r}")
+        if not math.isfinite(mean):
+            raise ValueError(f"bucket stats mean must be finite, got {mean!r}")
+        if not math.isfinite(m2):
+            raise ValueError(f"bucket stats m2 (sum of squared deviations) must be finite, got {m2!r}")
+        if m2 < 0:
+            raise ValueError(f"bucket stats m2 (sum of squared deviations) must be >= 0, got {m2!r}")
+        return cls(mean=mean, count=count, _m2=m2)
 
 
 @dataclass
@@ -168,13 +179,27 @@ class MultiStepValueEstimator:
         only the accumulated evidence (this export) is meant to persist."""
         return {b: s.export() for b, s in self._stats.items()}
 
+    def validate_export(self, data: dict) -> dict:
+        """Validate an `export_stats()`-shaped payload WITHOUT mutating this
+        estimator. Raises (KeyError/ValueError/TypeError) on malformed or
+        out-of-range data (missing fields, non-finite mean/m2, negative
+        count). Returns the staged per-bucket stats to pass to
+        `apply_staged` once every part of a larger load has validated --
+        this is what makes a multi-field load atomic: nothing is applied
+        until everything has been checked."""
+        return {bucket: _BucketStats.from_export(bucket_data) for bucket, bucket_data in data.items()}
+
+    def apply_staged(self, staged: dict) -> None:
+        """Merge stats already validated by `validate_export` into this
+        estimator. Never raises -- validation already happened, so this is
+        a plain merge (existing buckets not present in `staged` are kept)."""
+        self._stats.update(staged)
+
     def load_stats(self, data: dict) -> None:
-        """Restore settled per-bucket statistics exported by `export_stats`.
-        Merges into (does not clear) any stats already present, so this is
-        safe to call on a fresh estimator or, deliberately, on one that has
-        already recorded same-process evidence."""
-        for bucket, bucket_data in data.items():
-            self._stats[bucket] = _BucketStats.from_export(bucket_data)
+        """Validate-then-merge in one call: `apply_staged(validate_export(data))`.
+        Equivalent to calling those two separately when the caller has no
+        other state to validate atomically alongside this one."""
+        self.apply_staged(self.validate_export(data))
 
     def diagnostics(self) -> dict:
         return {
