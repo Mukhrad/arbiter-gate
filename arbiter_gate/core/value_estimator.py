@@ -57,6 +57,24 @@ class _BucketStats:
             return float("inf")
         return math.sqrt(max(0.0, self.variance) / self.count)
 
+    def export(self) -> dict:
+        return {"mean": self.mean, "count": self.count, "m2": self._m2}
+
+    @classmethod
+    def from_export(cls, data: dict) -> "_BucketStats":
+        mean = float(data["mean"])
+        count = int(data["count"])
+        m2 = float(data["m2"])
+        if count < 0:
+            raise ValueError(f"bucket stats count must be >= 0, got {count!r}")
+        if not math.isfinite(mean):
+            raise ValueError(f"bucket stats mean must be finite, got {mean!r}")
+        if not math.isfinite(m2):
+            raise ValueError(f"bucket stats m2 (sum of squared deviations) must be finite, got {m2!r}")
+        if m2 < 0:
+            raise ValueError(f"bucket stats m2 (sum of squared deviations) must be >= 0, got {m2!r}")
+        return cls(mean=mean, count=count, _m2=m2)
+
 
 @dataclass
 class PendingDecision:
@@ -150,6 +168,38 @@ class MultiStepValueEstimator:
     def mean(self, bucket: str) -> float:
         stats = self._stats.get(bucket)
         return stats.mean if stats else 0.0
+
+    def export_stats(self) -> dict:
+        """Serializable snapshot of settled per-bucket statistics. Deliberately
+        excludes `_pending` (open decision tickets): those are tied to a single
+        process's `time.monotonic()` clock and TTL window, so carrying them
+        across a process boundary (e.g. a new CI run) would either misapply a
+        stale TTL or silently resurrect tickets whose outcome was never really
+        measured in this run. Each run must open and close its own tickets;
+        only the accumulated evidence (this export) is meant to persist."""
+        return {b: s.export() for b, s in self._stats.items()}
+
+    def validate_export(self, data: dict) -> dict:
+        """Validate an `export_stats()`-shaped payload WITHOUT mutating this
+        estimator. Raises (KeyError/ValueError/TypeError) on malformed or
+        out-of-range data (missing fields, non-finite mean/m2, negative
+        count). Returns the staged per-bucket stats to pass to
+        `apply_staged` once every part of a larger load has validated --
+        this is what makes a multi-field load atomic: nothing is applied
+        until everything has been checked."""
+        return {bucket: _BucketStats.from_export(bucket_data) for bucket, bucket_data in data.items()}
+
+    def apply_staged(self, staged: dict) -> None:
+        """Merge stats already validated by `validate_export` into this
+        estimator. Never raises -- validation already happened, so this is
+        a plain merge (existing buckets not present in `staged` are kept)."""
+        self._stats.update(staged)
+
+    def load_stats(self, data: dict) -> None:
+        """Validate-then-merge in one call: `apply_staged(validate_export(data))`.
+        Equivalent to calling those two separately when the caller has no
+        other state to validate atomically alongside this one."""
+        self.apply_staged(self.validate_export(data))
 
     def diagnostics(self) -> dict:
         return {

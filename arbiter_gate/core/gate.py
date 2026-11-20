@@ -91,6 +91,67 @@ class ArbiterGate:
         """Close a decision when the caller did not run a counterfactual."""
         return self.value.abandon_decision(decision.decision_id)
 
+    STATE_SCHEMA_VERSION = 1
+
+    def export_state(self) -> dict:
+        """Serializable snapshot of everything this gate has LEARNED so far:
+        the exploration counter per bucket, the settled value-estimator
+        statistics, and the cooldown state. Deliberately excludes any open
+        (not yet reported/abandoned) decision tickets -- see
+        MultiStepValueEstimator.export_stats for why. A caller that persists
+        this and reloads it into a fresh ArbiterGate (e.g. a new CI run, a
+        new process) gets a gate whose very first decision already reflects
+        every prior run's evidence, instead of re-exploring from zero."""
+        return {
+            "schema_version": self.STATE_SCHEMA_VERSION,
+            "decisions_per_bucket": dict(self.decisions_per_bucket),
+            "value_stats": self.value.export_stats(),
+            "cooldown_state": self.cooldown.export_state(),
+        }
+
+    def load_state(self, state: dict) -> None:
+        """Restore a snapshot produced by `export_state`. All-or-nothing: every
+        field (schema_version, decisions_per_bucket, value_stats,
+        cooldown_state) is fully parsed and validated BEFORE anything on this
+        gate is mutated, so a failure anywhere -- a bad schema version, a
+        malformed bucket count, a non-finite or negative statistic -- leaves
+        this gate exactly as it was before the call, never partially
+        applied. (An earlier version of this method validated and mutated
+        decisions_per_bucket/value/cooldown one at a time, which could leave
+        decisions_per_bucket advanced past the exploration threshold while
+        value_stats/cooldown_state silently failed to load -- causing the
+        very next decision to skip exploration with no real evidence behind
+        it. Found and fixed after an independent reviewer reproduced it.)"""
+        version = state.get("schema_version")
+        if version != self.STATE_SCHEMA_VERSION:
+            raise ValueError(
+                f"ArbiterGate state schema_version {version!r} is not "
+                f"supported by this library version (expects "
+                f"{self.STATE_SCHEMA_VERSION!r}); refusing to load it rather "
+                f"than guess at its meaning."
+            )
+
+        raw_decisions = state.get("decisions_per_bucket", {})
+        decisions_per_bucket: dict[str, int] = {}
+        for bucket, n in raw_decisions.items():
+            n = int(n)
+            if n < 0:
+                raise ValueError(f"decisions_per_bucket[{bucket!r}] must be >= 0, got {n!r}")
+            decisions_per_bucket[bucket] = n
+
+        # Validate value/cooldown state too, still without touching self --
+        # a failure in either of these leaves decisions_per_bucket (above)
+        # un-applied as well.
+        staged_value = self.value.validate_export(state.get("value_stats", {}))
+        staged_cooldown = self.cooldown.validate_export(state.get("cooldown_state", {}))
+
+        # Every field validated; commit all three together. Each of these
+        # three calls is a plain merge of already-validated data and cannot
+        # itself fail, so this is effectively one atomic commit.
+        self.decisions_per_bucket.update(decisions_per_bucket)
+        self.value.apply_staged(staged_value)
+        self.cooldown.apply_staged(staged_cooldown)
+
     def diagnostics(self) -> dict:
         return {
             "value": self.value.diagnostics(),

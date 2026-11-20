@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "arbiter-gate"
-version = "0.2.1"
+version = "0.3.0"
 description = "Measured counterfactual-advantage gating between a cheap and an expensive agent path, with delayed/multi-step outcome reporting and automatic cooldown on harm."
 readme = "README.md"
 requires-python = ">=3.10"
